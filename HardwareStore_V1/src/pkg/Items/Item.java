@@ -1,5 +1,14 @@
+package pkg.Items;
 import java.io.Serializable;
 
+/**
+ * This class is a very simple representation of a hardware item. There are only getter
+ * methods and no setter methods and as a result an item cannot be mutated once
+ * initialized. An item object can also call the two override methods
+ * <CODE>toString()</CODE> and <CODE>equals()</CODE>
+ *
+ * @author Jeffrey Vallejo
+ */
 public abstract class Item implements Serializable {
 
     private  String id;
@@ -30,9 +39,26 @@ public abstract class Item implements Serializable {
         this.quantity = quantity;
         this.price = price;
     }
+/*
+    public class SortById implements Comparator<Item> {
+        /*Comparator for sorting the list by Item Id*//*
+        public static Comparator<Item> ItemIdComparator = new Comparator<Item>()
+        {
+
+            public int compare(Item s1, Item s2)
+            {
+                String ItemId1 = s1.getId().toUpperCase();
+                String ItemId2 = s2.getId().toUpperCase();
+
+                //ascending order
+                return ItemId1.compareTo(ItemId2);
+
+            }
+        };
+*/
 
     /**
-     * This method returns the item's tracking number.
+     * This method returns the item's ID.
      *
      * @return a <b><CODE>String</CODE></b> that is the ID number of the item.
      */

@@ -1,3 +1,12 @@
+package pkg.Items;
+
+import pkg.Items.Item;
+
+/**
+ * Template to extend item which allows for the input of hardware
+ * @author Jeffrey Vallejo
+ * @version 1 2-21-2018
+ */
 public class Hardware extends Item {
 
     private final String category;
@@ -17,7 +26,11 @@ public class Hardware extends Item {
 
     }
 
-    // the Hardware subclass adds one method.
+    /**
+     * The Hardware subclass adds one method.
+     *
+     * @return category
+     */
     public String getCategory() {
         return category;
     }

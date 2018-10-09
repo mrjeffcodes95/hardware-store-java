@@ -1,3 +1,5 @@
+package pkg.Users;
+
 import java.util.Scanner;
 public class Customer extends User {
 

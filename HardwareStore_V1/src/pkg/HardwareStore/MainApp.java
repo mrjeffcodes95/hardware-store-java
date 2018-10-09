@@ -1,7 +1,14 @@
+package pkg.HardwareStore;
 import java.io.IOException;
 import java.util.Scanner;
+import pkg.Users.User;
 
-
+/**
+ * This is the main class of the Hardware Store database manager. It provides a
+ * console for a user to use the 5 main commands.
+ *
+ * @author Jeffrey Vallejo
+ */
 public class MainApp {
 
     // This object will allow us to interact with the methods of the class HardwareStore
@@ -85,11 +92,9 @@ public class MainApp {
             try {
                 hardwareStore.addNewItem(itemType, idNumber);
             } catch (IOException e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
             }
 
-            //hardwareStore.addNewItem(idNumber, name, category, quantity, price);
         }
 
     }
@@ -100,6 +105,8 @@ public class MainApp {
         System.out.println("1. Employee\n" + "2. Customer\n");
         int userType  = CONSOLE_INPUT.nextInt();
         hardwareStore.addUser(userType);
+        System.out.println("User was added.");
+
     }
     public void updateUser() {
 
@@ -116,11 +123,11 @@ public class MainApp {
         Scanner sc = new Scanner(System.in);
         String deleteItem = null;
         System.out.println("What is the Id number of the Item to be deleted?: ");
-        String remove = sc.nextLine();
         deleteItem = sc.nextLine();
-        if (hardwareStore.findItem(deleteItem) >= 0) {
-            //this needs to be created in HardwareStore to remove the item from the array list
-            hardwareStore.removeItem(deleteItem);
+        int remove = hardwareStore.findItem(deleteItem);
+        if (remove >= 0) {
+
+            hardwareStore.removeItem(remove);
 
         }
 
@@ -245,48 +252,52 @@ public class MainApp {
         MainApp app = new MainApp();
 
         String welcomeMessage = "\nWelcome to the Hardware Store database. Choose one of the following functions:\n\n"
-                + "\t1. Show all existing items in stock and their quantities.\n"
-                + "\t2. Add a new quantity of a specific item to the stock.\n"
-                + "\t3. Remove a certain quantity of a specific item type.\n"
-                + "\t4. Search for an item (given its name or part of its name).\n"
-                + "\t5. Show a list of all items below a certain quantity.\n"
-                + "\t6. Exit program.\n";
+                + "\t1. Show all existing items records in the database (sorted by ID number).\n"
+                + "\t2. Add new item (or quantity) to the database.\n"
+                + "\t3. Delete an item from a database.\n"
+                + "\t4. Search for an item given its name.\n"
+                + "\t5. Show a list of users in the database.\n"
+                + "\t6. Add new user to the database.\n"
+                + "\t7. Update user info (given their id).\n"
+                + "\t8. Complete a sale transaction.\n"
+                + "\t9. Show completed sale transactions.\n"
+                + "\tE. Exit program.\n";
 
         System.out.println(welcomeMessage);
 
         int selection = CONSOLE_INPUT.next().charAt(0);
         CONSOLE_INPUT.nextLine();
 
-        while (selection != 10) {
+        while (selection != 'E') {
 
             switch (selection) {
-                case 1:
+                case '1':
                     app.showAllItems();
                     break;
-                case 2:
+                case '2':
                     app.addItemQuantity();
                     break;
-                case 3:
+                case '3':
                     app.deleteItem();
                     //app.removeItemQuantity();
                     break;
-                case 4:
+                case '4':
                     app.searchItemByName();
                     break;
-                case 5:
+                case '5':
                     app.showAllUsers();
                     break;
-                case 6:
+                case '6':
                     app.addNewUser();
                     break;
-                case 7:
+                case '7':
                     app.updateUser();
                     break;
-                case 8:
+                case '8':
                     app.completeSale();
-                case 9:
+                case '9':
                     app.showSales();
-                case 11:
+                case 'h':
                     System.out.println(welcomeMessage);
                     break;
                 default:
@@ -295,7 +306,7 @@ public class MainApp {
 
             }
 
-            System.out.println("Please enter another command or '11' to list the commands.\n");
+           // System.out.println("Please enter another command or '11' to list the commands.\n");
             selection = CONSOLE_INPUT.next().charAt(0);
 
             CONSOLE_INPUT.nextLine();

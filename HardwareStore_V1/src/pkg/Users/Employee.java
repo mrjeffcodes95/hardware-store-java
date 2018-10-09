@@ -1,4 +1,5 @@
-//package HardwareStore2
+package pkg.Users;
+
 import java.util.Scanner;
 public class Employee extends User {
     private int ssn;

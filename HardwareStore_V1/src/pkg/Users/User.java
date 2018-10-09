@@ -1,7 +1,11 @@
-//package HardwareStore2;
+package pkg.Users;
 import java.io.Serializable;
 import java.util.Scanner;
-
+/**
+ * Template for adding a user to the database, which is an abstract class
+ * @author Jeffrey Vallejo
+ * @version 1 2-21-2018
+ */
 
 public abstract class User implements Serializable{
     //private members
@@ -60,12 +64,12 @@ public abstract class User implements Serializable{
      * Setter function for user first name
      * @param firstName for user first name
      */
-    public void setFirstName(String firstName) {this.first = firstName;	}
+    public void setFirstName(String firstName) {this.firstName = firstName;	}
     /**
      * Setter function for user last name
      * @param lastName for user last name
      */
-    public void setLastName(String lastName){this.last = lastName;}
+    public void setLastName(String lastName){this.lastName = lastName;}
     /**
      * Override toString to print the user.
      * @return user in a string

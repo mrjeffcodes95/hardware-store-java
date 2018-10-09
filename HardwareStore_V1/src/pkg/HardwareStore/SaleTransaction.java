@@ -1,3 +1,4 @@
+package pkg.HardwareStore;
 import java.util.Date;
 import java.io.Serializable;
 
@@ -12,12 +13,11 @@ public class SaleTransaction implements Serializable{
 
     /**
      * Transaction constructor initializes the user attributes.
-     * @param itemId the customer ID
-     * @param eID the employee ID
-     * @param tn the tracking number
-     * @param shipD the shipping date
-     * @param deliverD the deliver date
-     * @param costShip the shipping cost
+     * @param itemId the item ID
+     * @param saleDate the sale date
+     * @param custID the customer ID
+     * @param empID the Employee ID
+     * @param quantity the Quantity
      */
     public SaleTransaction(String itemId, Date saleDate, int custID, int empID, float quantity) {
         this.itemId = itemId;
